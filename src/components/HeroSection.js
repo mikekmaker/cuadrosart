@@ -8,7 +8,6 @@ function HeroSection() {
     <div className='hero-container'>
       <video src='/videos/cuadros_art_intro.mp4' autoPlay loop muted />
       <h1>&nbsp;</h1>
-      <h1>&nbsp;</h1>
       <h1>Cuadros Art</h1>
       <p>Tu lugar para adquirir buen arte</p>
       <div className='hero-btns'>
