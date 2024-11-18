@@ -29,27 +29,20 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>Qui&eacute;nes Somos</h2>
-            <Link to='/sign-up'>C&oacute;mo funciona</Link>
-            <Link to='/'>Testimonios</Link>
-            <Link to='/'>Unite a nuestro Equipo</Link>
-            <Link to='/'>Sum&aacute;te como Sponsor</Link>
+            <Link to='/sign-up'>C&oacute;mo comprar</Link>
+            <Link to='/'>Testimonios de compradores</Link>
             <Link to='/'>T&eacute;rminos y Condiciones</Link>
           </div>
           <div className='footer-link-items'>
             <h2>Contacto</h2>
-            <Link to='/'>Libro de Quejas</Link>
             <Link to='/'>Consultas</Link>
-            <Link to='/'>Recordatorios</Link>
-            <Link to='/'>Sponsors</Link>
+            <Link to='/'>Talleres</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>Videos</h2>
-            <Link to='/'>Cancha Confort</Link>
-            <Link to='/'>Cancha Relax</Link>
-            <Link to='/'>Cancha Emoci&oacute;n</Link>
-            <Link to='/'>Cancha Adrenalina</Link>
+            <Link to='/'>Exposici&oacute;n Julio 2024</Link>
           </div>
           <div className='footer-link-items'>
             <h2>Nuestras Redes</h2>
