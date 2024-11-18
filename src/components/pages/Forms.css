@@ -1,0 +1,91 @@
+.radio-group {
+    display: flex!important;
+    flex-wrap: nowrap!important; /* Allow wrapping on smaller screens */
+    gap: 10px!important; /* Space between buttons */
+  }
+  
+  .radio-item {
+    display: flex!important;
+    align-items: center!important; /* Align the radio button and label vertically */
+  }
+  
+  .radio-item label {
+    margin-left: 5px!important; /* Space between the radio button and label */
+  }
+
+  .form-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  label {
+    margin-right: 15px;
+  }
+  
+  @media (min-width: 800px) {
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      gap: 20px; /* Adjust spacing between controls */
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* 1 column for smaller screens */
+      gap: 20px;
+    }
+  }
+
+  .password-toggle-btn {
+    padding: 4px;
+    font-size: 18px;
+    color: #2f1c08;
+  }
+  
+  .password-toggle-btn:hover {
+    color: #b16820;
+    cursor: pointer;
+  }
+
+  .form-group {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;  /* Align labels and inputs to the left */
+    width: 90%;  /* Ensure consistent width */
+  }
+
+  .confirm-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999!important; /* Ensures modal is above everything */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  /* General styles for the alert */
+.react-confirm-alert-body {
+  padding: 20px; /* Adjust padding as needed */
+  max-width: 400px!important; /* Set a max width for larger screens */
+  margin: auto; /* Center the alert */
+}
+
+/* Styles for screens less than 800px */
+@media (max-width: 800px) {
+  .react-confirm-alert-body {
+    padding: 10px; /* Reduce padding for smaller devices */
+    width: 70%!important; /* Make it take up most of the screen width */
+    box-shadow: none; /* Optionally remove box shadow */
+  }
+}
+
+  

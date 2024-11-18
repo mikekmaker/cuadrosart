@@ -1,0 +1,76 @@
+.login-image {
+    width: 20%; /* Default size for smaller screens */
+    max-width: 400px; /* Limit maximum size */
+    height: 20%; /* Maintain aspect ratio */
+    position: absolute; /* Position relative to .hero-container */
+    transform: translateY(-50%); /* Move upwards by half its height */
+    margin-left: 85dvh;
+    margin-top: -7dvh;
+    z-index: -1; /* Ensure it's above background or other content */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+@media(min-width: 640px) {  
+    .login-image {
+        z-index: -1;
+        width: 100%; /* Reduce width for larger screens */
+        height: auto;
+        max-width: 600px; /* Further limit size */
+        top: 40%; /* Shift upwards for larger screens */
+        transform: translateY(-40%); /* Adjust translate to align better */
+        margin-left: 0%;
+        margin-top: 30px;
+    }
+}
+
+@media(min-width: 350px) {  
+    .login-image {
+        z-index: -1;
+        width: 95%; /* Reduce width for larger screens */
+        height: auto;
+        max-width: 600px; /* Further limit size */
+        top: 40%; /* Shift upwards for larger screens */
+        transform: translateY(-40%); /* Adjust translate to align better */
+        margin-left: 0%;
+        margin-top: 35px;
+    }
+}
+
+@media(min-width: 414px) {  
+    .login-image {
+        z-index: -1;
+        width: 95%; /* Reduce width for larger screens */
+        height: auto;
+        max-width: 600px; /* Further limit size */
+        top: 40%; /* Shift upwards for larger screens */
+        transform: translateY(-40%); /* Adjust translate to align better */
+        margin-left: 0%;
+        margin-top: -30px!important;
+    }
+}
+
+@media(min-height: 640px) {  
+    .login-image {
+        z-index: -1;
+        width: 90%; /* Reduce width for larger screens */
+        height: auto;
+        max-width: 600px; /* Further limit size */
+        top: 34%; /* Shift upwards for larger screens */
+        transform: translateY(-40%); /* Adjust translate to align better */
+        margin-left: 0%;
+        margin-top: 40px!important;
+    }
+}
+
+@media (min-height: 1024px) and (max-height: 1800px) {
+    .login-image {
+      width: 60%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      margin-top: -280px!important;
+    }
+  }
+  

@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color:  #ff6660; /*#ff3333;*/
+  font-size: 0.9em;
+}
+
+.error:focus {
+  border-color: #ff6660; 
+  box-shadow: 0 0 12px rgba(33, 3, 2, 0.3); 
+}
+
+.floating-error {
+  color: #007faf;/*#bb417a;/*#ff4d4d;  A bright red color that stands out against gray */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+ p {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+span {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #333;
+  font-family: 'Roboto', sans-serif; 
+}
+
+label {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
