@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/images/painting-oil-on-canvas.jpg",
+      "src": "/images/img-1.jpg",
       "type": "image/jpg",
       "sizes": "728x485"
     },
     {
-      "src": "/images/padel_court.jpg",
+      "src": "/images/painting-oil-on-canvas.jpg",
       "type": "image/jpg",
       "sizes": "512x512"
     }
