@@ -12,13 +12,13 @@ import { handleError } from '../HandlerError';
 import './Galeria.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import ReactCardFlip from "react-card-flip";
-import './../Cards.css';
+import './../FlippingCards.css';
 import CardItem from './../CardItem';
 
 export default function Galeria() {
   //declare flipping card
   const [flip, setFlip] = useState(false);
-
+  const [flip0, setFlip0] = useState(false);
   //JSON datos obras de artes
   let url = `${Config.beApiPrefix}/galeria`;
   let model = null;
@@ -63,17 +63,57 @@ export default function Galeria() {
       <h2 className='sign-up'>GALERIA</h2>
       <div className='hero-container'>
           <div className="app-container">
-          <div className='cards__container'>
-            <div className='cards__wrapper'>
-                <ul className='cards__items'>
-                        <ReactCardFlip isFlipped={flip}
+          <div className='flip_cards__container'>
+            <div className='flip_cards__wrapper'>
+                <ul className='flip_cards__items'>
+                        <ReactCardFlip isFlipped={flip0} name="card1"
                         flipDirection="horizontal">
                         <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%' }}>
                             <CardItem
                                 src='images/the_scream_demo.jpg'
                                 text='El Grito'
                                 label='420 X 297'
-                                path='/services'
+                                path='/galeria'
+                            />
+                            <br />
+                            <br />
+                            <button style={{
+                                width: '150px',
+                                padding: '10px',
+                                fontSize: '20px',
+                                background: '#f5d9fa',
+                                fontWeight: 'bold',
+                                borderRadius: '5px'
+                            }} onClick={() => setFlip0(!flip0)}>
+                                info</button>
+                        </div>
+                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%'}}>
+                            <CardItem
+                                src='images/old_canva.jpg'
+                                text='ir al carrito'
+                                label='este cuadro fue pintado por el artista Munch'
+                                path='/galeria'
+                            />
+                            <br />
+                            <button style={{
+                                width: '150px',
+                                padding: '10px',
+                                fontSize: '20px',
+                                background: '#f5d9fa',
+                                fontWeight: 'bold',
+                                borderRadius: '5px'
+                            }} onClick={() => setFlip0(!flip0)}>
+                                pintura</button>
+                        </div>
+                    </ReactCardFlip>
+                    <ReactCardFlip isFlipped={flip}
+                        flipDirection="horizontal">
+                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%' }}>
+                            <CardItem
+                                src='images/the_scream_demo.jpg'
+                                text='El Grito'
+                                label='420 X 297'
+                                path='/galeria'
                             />
                             <br />
                             <br />
@@ -90,9 +130,9 @@ export default function Galeria() {
                         <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%'}}>
                             <CardItem
                                 src='images/old_canva.jpg'
-                                text='Cancha Premium'
+                                text='ir al carrito'
                                 label='este cuadro fue pintado por el artista Munch'
-                                path='/services'
+                                path='/galeria'
                             />
                             <br />
                             <button style={{
