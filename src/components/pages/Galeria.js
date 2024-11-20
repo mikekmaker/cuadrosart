@@ -13,7 +13,7 @@ import './Galeria.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import ReactCardFlip from "react-card-flip";
 import './../FlippingCards.css';
-import CardItem from './../CardItem';
+import FlipCardItem from './../FlipCardItem';
 
 export default function Galeria() {
   //declare flipping card
@@ -59,17 +59,17 @@ export default function Galeria() {
 
   return (
   <>
-  <div className='hero-container'>
+    <div className='hero-container'>
       <h2 className='sign-up'>GALERIA</h2>
-      <div className='hero-container'>
+        <div className='hero-container'>
           <div className="app-container">
-          <div className='flip_cards__container'>
-            <div className='flip_cards__wrapper'>
+            <div className='flip_cards__container'>
+              <div className='flip_cards__wrapper'>
                 <ul className='flip_cards__items'>
                         <ReactCardFlip isFlipped={flip0} name="card1"
                         flipDirection="horizontal">
-                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%' }}>
-                            <CardItem
+                        <div className='flip_cards_container'>
+                            <FlipCardItem
                                 src='images/the_scream_demo.jpg'
                                 text='El Grito'
                                 label='420 X 297'
@@ -77,39 +77,25 @@ export default function Galeria() {
                             />
                             <br />
                             <br />
-                            <button style={{
-                                width: '150px',
-                                padding: '10px',
-                                fontSize: '20px',
-                                background: '#f5d9fa',
-                                fontWeight: 'bold',
-                                borderRadius: '5px'
-                            }} onClick={() => setFlip0(!flip0)}>
+                            <button className="flip_card_button" onClick={() => setFlip0(!flip0)}>
                                 info</button>
                         </div>
-                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%'}}>
-                            <CardItem
+                        <div className='flip_cards_container'>
+                            <FlipCardItem
                                 src='images/old_canva.jpg'
                                 text='ir al carrito'
                                 label='este cuadro fue pintado por el artista Munch'
                                 path='/galeria'
                             />
                             <br />
-                            <button style={{
-                                width: '150px',
-                                padding: '10px',
-                                fontSize: '20px',
-                                background: '#f5d9fa',
-                                fontWeight: 'bold',
-                                borderRadius: '5px'
-                            }} onClick={() => setFlip0(!flip0)}>
+                            <button className="flip_card_button" onClick={() => setFlip0(!flip0)}>
                                 pintura</button>
                         </div>
                     </ReactCardFlip>
                     <ReactCardFlip isFlipped={flip}
                         flipDirection="horizontal">
-                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%' }}>
-                            <CardItem
+                        <div className='flip_cards_container'>
+                            <FlipCardItem
                                 src='images/the_scream_demo.jpg'
                                 text='El Grito'
                                 label='420 X 297'
@@ -117,50 +103,35 @@ export default function Galeria() {
                             />
                             <br />
                             <br />
-                            <button style={{
-                                width: '150px',
-                                padding: '10px',
-                                fontSize: '20px',
-                                background: '#f5d9fa',
-                                fontWeight: 'bold',
-                                borderRadius: '5px'
-                            }} onClick={() => setFlip(!flip)}>
+                            <button className='flip_card_button' onClick={() => setFlip(!flip)}>
                                 info</button>
                         </div>
-                        <div style={{ background: 'rgba(1, 1, 1, 0.06)', width:'100%'}}>
-                            <CardItem
+                        <div className='flip_cards_container'>
+                            <FlipCardItem
                                 src='images/old_canva.jpg'
                                 text='ir al carrito'
                                 label='este cuadro fue pintado por el artista Munch'
                                 path='/galeria'
                             />
                             <br />
-                            <button style={{
-                                width: '150px',
-                                padding: '10px',
-                                fontSize: '20px',
-                                background: '#f5d9fa',
-                                fontWeight: 'bold',
-                                borderRadius: '5px'
-                            }} onClick={() => setFlip(!flip)}>
+                            <button className='flip_card_button' onClick={() => setFlip(!flip)}>
                                 pintura</button>
                         </div>
                     </ReactCardFlip>
                 </ul>
-            </div>
+              </div>
+            </div>      
           </div>
-                
         </div>
-      </div>
-      <div className='hero-btns'>
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          Comprar <i className='fa fas fa-cart-shopping' />
-        </Button>
-      </div>
+        <div className='hero-btns'>
+          <Button
+            className='btns'
+            buttonStyle='btn--outline'
+            buttonSize='btn--large'
+          >
+            Comprar <i className='fa fas fa-cart-shopping' />
+          </Button>
+        </div>
     </div>
     <ToastContainer />
     <Footer/>
