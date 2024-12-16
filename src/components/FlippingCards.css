@@ -32,16 +32,17 @@ h1 {
 }
 
 .flip_cards__items {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .flip_cards__item {
   display: flex;
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 4rem; /* Increase horizontal margin for more spacing */
+  margin-bottom: 4rem; /* Ensure enough vertical spacing */
   border-radius: 10px;
   background: rgba(1, 1, 1, 0.06);
-  width:100%
+  width:100%;
 }
 
 .flip_cards__item__link {
@@ -127,6 +128,7 @@ h1 {
 @media only screen and (min-width: 1024px) {
   .flip_cards__items {
     display: flex;
+    gap: 4rem; /* Add gap for spacing between items in larger screens */
   }
 }
 
