@@ -12,7 +12,7 @@ h1 {
   flex-flow: column;
   align-items: center;
   max-width: 1120px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-left: -3.6em;
 }
@@ -23,12 +23,20 @@ h1 {
 }
 
 .flip_cards_container {
-  background: rgba(1, 1, 1, 0.06);
-  width: 105%;
+  background: rgba(255, 255, 255, 0.86);
+  width: auto;
   column-span: inherit;
+  align-items: center; /* Center-align image and info horizontally */
+  justify-content: center; /* Center-align items vertically */
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  display: inline-flex; /* Inline-flex ensures it shrinks to its content */
+  flex-direction: column; /* Stack children vertically (image + info) */
+  padding: 1rem; /* Add padding for spacing inside the container */
+  /*background: rgba(255, 255, 255, 0.9);  Slight contrast for visibility */
+  border-radius: 10px;
+
 }
 
 .flip_cards__items {
@@ -38,11 +46,14 @@ h1 {
 .flip_cards__item {
   display: flex;
   flex: 1;
-  margin: 0 4rem; /* Increase horizontal margin for more spacing */
+  margin: 0 auto; /* Increase horizontal margin for more spacing */
   margin-bottom: 4rem; /* Ensure enough vertical spacing */
   border-radius: 10px;
   background: rgba(1, 1, 1, 0.06);
   width:100%;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
+  height: auto; /* Allow height to adapt to the container */  
 }
 
 .flip_cards__item__link {
