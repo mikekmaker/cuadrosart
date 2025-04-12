@@ -236,26 +236,16 @@ export default function SignUp() {
                         className={`fancy-input ${errors.genero ? 'fancy-input-error' : ''}`}
                         onChange={handleChange} /><label htmlFor='masculino' className='ml-2'>Femenino</label>
                       </div>
+                      <div  className="radio-item">
+                      <FancyInput label="" placeholder="Ingrese su g&eacute;nero" type="radio" id="otro" value="Otro"
+                        name="genero"
+                        checked={formData.genero === 'Otro'}
+                        className={`fancy-input ${errors.genero ? 'fancy-input-error' : ''}`}
+                        onChange={handleChange} /><label htmlFor='masculino' className='ml-2'>Otro</label>
+                      </div>
                   </div>
                   {errors.genero && <p className="error">{errors.genero}</p>}
               </div>
-              <div>
-                  <h3 className="text-4xl font-medium">Edad</h3>
-                  <FancyInput label="" placeholder="ingrese su edad" type="number" min="0" max="99" maxLength="2" onInput={limitInput} value={edad} 
-                    name="edad"
-                    className={`fancy-input ${errors.edad ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange} />
-                    {errors.edad && <p className="error">{errors.edad}</p>}
-              </div>
-              <div>
-                  <h3 className="text-4xl font-medium">Direcci&oacute;n</h3>
-                  <FancyInput label="" placeholder="ingrese su direcci&oacute;n" type="text" value={formData.direccion}
-                    name="direccion"
-                    className={`fancy-input ${errors.direccion ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange} />
-                    {errors.direccion && <p className="error">{errors.direccion}</p>}
-              </div>
-              <div></div>
               <div>
                   <h3 className="text-4xl font-medium">Email</h3>
                   <FancyInput label="" placeholder="Ingrese su email" type="email" value={formData.email}
@@ -281,35 +271,14 @@ export default function SignUp() {
                     {errors.telefono && <p className="error">{errors.telefono}</p>}
               </div>
               <div>
-                  <h3 className="text-4xl font-medium">Nivel de juego</h3>
-                  <select label="" placeholder="ej: principante, intermedio, avanzado" type="text" value={formData.nivel}
-                    name="nivel"
-                    className={`fancy-input ${errors.nivel ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange}>
-                    <option value="" disabled>Select nivel</option>
-                    {optionsNivel.map(option => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.nivel && <p className="error">{errors.nivel}</p>}
+                  <h3 className="text-4xl font-medium">A&ntilde;os disfrutando de consumir Arte</h3>
+                  <FancyInput label="" placeholder="a&ntilde;os consumiendo arte" type="number" min="0" max="99" maxLength="2" onInput={limitInput} value={edad} 
+                    name="edad"
+                    className={`fancy-input ${errors.edad ? 'fancy-input-error' : ''}`}
+                    onChange={handleChange} />
+                    {errors.edad && <p className="error">{errors.edad}</p>}
               </div>
-              <div>
-                  <h3 className="text-4xl font-medium">Tipo de juego</h3>
-                  <select label="" placeholder="reves, drive, indistinto" type="text" value={formData.tipoDeJuego}
-                    name="tipoDeJuego"
-                    className={`fancy-input ${errors.tipoDeJuego ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange}>
-                     <option value="" disabled>Select tipo de juego</option>
-                      {optionsTipoDeJuego.map(option => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                  </select>
-                    {errors.tipoDeJuego && <p className="error">{errors.tipoDeJuego}</p>}
-              </div>
+              <button onClick={handleSubmit}  className="btns btn btn--outline btn--large">Enviar</button>
               <div>
                   <FancyInput label="" placeholder="" type="hidden" value={formData.idTipoUsuario}
                     name="idTipoUsuario"
@@ -318,7 +287,6 @@ export default function SignUp() {
                     {errors.idTipoUsuario && <p className="error">{errors.idTipoUsuario}</p>}
               </div>
               <div></div>
-              <button onClick={handleSubmit}  className="btns btn btn--outline btn--large">Enviar</button>
               {formErrorMessage && <div className="floating-error">{formErrorMessage}</div>}
       </form>
       </div>  
