@@ -67,7 +67,7 @@ export default function SignUp() {
     // Validaciones de formulario
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
-        if (!formData[key] ) { // || key!=='telefono' ) {
+        if (!formData[key] && key !== 'telefono' ) {
             newErrors[key] = mandatoryFieldMsg;
             console.log(key);
         }
@@ -171,7 +171,7 @@ export default function SignUp() {
       if (formData.contrasena !== formData.recontrasena)
         stepErrors.recontrasena = 'Las contraseñas no coinciden';
     } else if (step === 3) {
-      ['email', 'remail', 'edad', 'telefono'].forEach(key => {
+      ['email', 'remail', 'edad'].forEach(key => {
         if (!formData[key]) stepErrors[key] = 'Requerido';
       });
       if (formData.email !== formData.remail)
