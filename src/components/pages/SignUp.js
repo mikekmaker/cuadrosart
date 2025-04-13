@@ -11,13 +11,15 @@ import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
+  //steps de formulario
+  const [step, setStep] = useState(1);
 
   //redirect
   const navigate = useNavigate();
 
   //formulario para el modelo
   const [formData, setFormData] = useState({
-    id: 1,
+    id: -1,
     alias: '',
     contrasena: '',
     recontrasena:'',
@@ -25,12 +27,9 @@ export default function SignUp() {
     apellido: '',
     genero: '',
     edad: '',
-    direccion: '',
     email: '',
     remail:'',
     telefono: '',
-    nivel: '',
-    tipoDeJuego:'',
     idTipoUsuario: 3
   });
 
@@ -43,20 +42,6 @@ export default function SignUp() {
 
   //manejo de campos
   const [edad, setEdad] = useState('');
-
-  //inicializar opciones de controles
-  const optionsNivel = [
-    { value: 'principiante', label: 'Principiante' },
-    { value: 'intermedio', label: 'Intermedio' },
-    { value: 'avanzado', label: 'Avanzado' }
-  ];
-  
-  const optionsTipoDeJuego = [
-    { value: 'reves', label: 'Reves' },
-    { value: 'drive', label: 'Drive' },
-    { value: 'indistinto', label: 'Indistinto' }
-  ];
-  //fin inicializar controles
 
   //mensajes
   const eventOk = "Usuario registrado correctamente!";
@@ -82,7 +67,7 @@ export default function SignUp() {
     // Validaciones de formulario
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
-        if (!formData[key]) {
+        if (!formData[key] ) { // || key!=='telefono' ) {
             newErrors[key] = mandatoryFieldMsg;
             console.log(key);
         }
@@ -173,36 +158,42 @@ export default function SignUp() {
     setEdad(inputValue);
   };
 
+  const validateStep = () => {
+    const stepErrors = {};
+    if (step === 1) {
+      ['nombre', 'apellido', 'genero'].forEach(key => {
+        if (!formData[key]) stepErrors[key] = 'Requerido';
+      });
+    } else if (step === 2) {
+      ['alias', 'contrasena', 'recontrasena'].forEach(key => {
+        if (!formData[key]) stepErrors[key] = 'Requerido';
+      });
+      if (formData.contrasena !== formData.recontrasena)
+        stepErrors.recontrasena = 'Las contraseñas no coinciden';
+    } else if (step === 3) {
+      ['email', 'remail', 'edad', 'telefono'].forEach(key => {
+        if (!formData[key]) stepErrors[key] = 'Requerido';
+      });
+      if (formData.email !== formData.remail)
+        stepErrors.remail = 'Los correos no coinciden';
+    }
+    setErrors(stepErrors);
+    return Object.keys(stepErrors).length === 0;
+  };
+
+  const nextStep = () => {
+    if (validateStep()) setStep(prev => prev + 1);
+  };
+
+  const prevStep = () => setStep(prev => prev - 1);
 
   return ( 
     <>
     <h1 className='sign-up'>Registrarse</h1>
     <div className='hero-container'>
       <form  className='hero-container form-grid'>
-              <div>
-                  <h3 className="text-4xl font-medium">Alias</h3>
-                  <FancyInput label="" placeholder="Ingrese su alias" type="text" value={formData.alias}
-                    name="alias"
-                    className={`fancy-input ${errors.alias ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange} />
-                    {errors.alias && <p className="error">{errors.alias}</p>}
-              </div>
-              <div>
-                  <h3 className="text-4xl font-medium">Contrase&ntilde;a</h3>
-                  <FancyInput label="" placeholder="ingrese su contrase&ntilde;a" type="text" value={formData.contrasena}
-                    name="contrasena"
-                    className={`fancy-input ${errors.contrasena ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange} />
-                    {errors.contrasena && <p className="error">{errors.contrasena}</p>}
-              </div>
-              <div>
-                  <h3 className="text-4xl font-medium">Repetir Contrase&ntilde;a</h3>
-                  <FancyInput label="" placeholder="reingrese su contrase&ntilde;a" type="text" value={formData.recontrasena}
-                    name="recontrasena"
-                    className={`fancy-input ${errors.recontrasena ? 'fancy-input-error' : ''}`}
-                    onChange={handleChange} />
-                    {errors.recontrasena && <p className="error">{errors.recontrasena}</p>}
-              </div>
+      {step === 1 && (
+        <>
               <div>
                   <h3 className="text-4xl font-medium">Nombre</h3>
                   <FancyInput label="" placeholder="Ingrese su nombre" type="text" value={formData.nombre}
@@ -246,6 +237,44 @@ export default function SignUp() {
                   </div>
                   {errors.genero && <p className="error">{errors.genero}</p>}
               </div>
+              <div></div>
+              <div></div>
+        </>
+      )}
+
+{step === 2 && (
+        <>
+            <div>
+                <h3 className="text-4xl font-medium">Alias</h3>
+                <FancyInput label="" placeholder="Ingrese su alias" type="text" value={formData.alias}
+                  name="alias"
+                  className={`fancy-input ${errors.alias ? 'fancy-input-error' : ''}`}
+                  onChange={handleChange} />
+                  {errors.alias && <p className="error">{errors.alias}</p>}
+            </div>
+            <div>
+                <h3 className="text-4xl font-medium">Contrase&ntilde;a</h3>
+                <FancyInput label="" placeholder="ingrese su contrase&ntilde;a" type="text" value={formData.contrasena}
+                  name="contrasena"
+                  className={`fancy-input ${errors.contrasena ? 'fancy-input-error' : ''}`}
+                  onChange={handleChange} />
+                  {errors.contrasena && <p className="error">{errors.contrasena}</p>}
+            </div>
+            <div>
+                <h3 className="text-4xl font-medium">Repetir Contrase&ntilde;a</h3>
+                <FancyInput label="" placeholder="reingrese su contrase&ntilde;a" type="text" value={formData.recontrasena}
+                  name="recontrasena"
+                  className={`fancy-input ${errors.recontrasena ? 'fancy-input-error' : ''}`}
+                  onChange={handleChange} />
+                  {errors.recontrasena && <p className="error">{errors.recontrasena}</p>}
+            </div>
+            <div></div>
+            <div></div>
+        </>
+      )}
+
+      {step === 3 && (
+          <>
               <div>
                   <h3 className="text-4xl font-medium">Email</h3>
                   <FancyInput label="" placeholder="Ingrese su email" type="email" value={formData.email}
@@ -278,7 +307,14 @@ export default function SignUp() {
                     onChange={handleChange} />
                     {errors.edad && <p className="error">{errors.edad}</p>}
               </div>
-              <button onClick={handleSubmit}  className="btns btn btn--outline btn--large">Enviar</button>
+              <div></div>
+          </>
+      )}
+              <div className="form-navigation">
+                {step > 1 && <button type="button" className="btns btn btn--outline btn--large" onClick={prevStep}>Anterior</button>}
+                {step < 3 && <button type="button" className="btns btn btn--outline btn--large" onClick={nextStep}>Siguiente</button>}
+                {step === 3 &&  <button onClick={handleSubmit}  className="btns btn btn--outline btn--large">Enviar</button> }
+              </div>
               <div>
                   <FancyInput label="" placeholder="" type="hidden" value={formData.idTipoUsuario}
                     name="idTipoUsuario"
